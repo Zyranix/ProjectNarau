@@ -19,6 +19,11 @@ public class BeatmapLoader : MonoBehaviour
 
 
     }
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     private void DebugExample()
     {
@@ -32,11 +37,6 @@ public class BeatmapLoader : MonoBehaviour
         currentCopy = LoadData("tutorial1");
         for (int i = 0; i < currentCopy.checkpoints.Length; i++)
             Debug.Log(currentCopy.checkpoints[i]);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     public void LoadFolder()
     {

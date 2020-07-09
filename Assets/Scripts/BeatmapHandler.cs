@@ -20,11 +20,13 @@ public class BeatmapHandler : MonoBehaviour
 
     }
 
-    public bool PlayBeatmap(ref Beatmap map)
+    // async?
+    async public bool PlayBeatmap(ref Beatmap map)
     {
         AudioClip clip = Resources.Load<AudioClip>(map.songLocation);
         music.PlayOneShot(clip);
         startTime = Time.time;
+
 
 
         return true;

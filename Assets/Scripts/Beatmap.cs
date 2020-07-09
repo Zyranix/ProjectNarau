@@ -10,5 +10,6 @@ public class Beatmap
     public float end;
     //public Vector[] difficulties;
     public Tuple<double, double, double>[] checkpoints; // timestamp, x-coord, y-coord
+    // TODO: Steuerzeichen / "bell-sounds"
 
 }
