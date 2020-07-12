@@ -14,7 +14,7 @@ public class Shower : MonoBehaviour
 
     void OnEnable()
     {
-        StartCoroutine(lowerHandle.SwitchTo(this, 0.5f)); // seems like this is max movement speed
+        //StartCoroutine(lowerHandle.SwitchTo(this, 0.5f)); // seems like this is max movement speed
     }
 
 

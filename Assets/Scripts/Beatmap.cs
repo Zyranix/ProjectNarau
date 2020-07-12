@@ -7,9 +7,7 @@ public class Beatmap
     public string songName;
     public float bpm;
     public float start; // might be not needed after all
-    public float end;
+    public float duration;
     //public Vector[] difficulties;
-    public Tuple<double, double, double>[] checkpoints; // timestamp, x-coord, y-coord
-    // TODO: Steuerzeichen / "bell-sounds"
-
+    public Tuple<float, CpType, float, float>[] checkpoints; // timestamp, checkpoint-type, x-coord, y-coord
 }

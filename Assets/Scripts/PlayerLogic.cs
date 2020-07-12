@@ -18,6 +18,5 @@ public class PlayerLogic : MonoBehaviour
     void Update()
     {
         transform.position = upperHandle.HandlePosition(transform.position);
-
     }
 }

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GameManagerLogic : MonoBehaviour
 {
-    public TutorialManager tutorialManager;
-    public LevelLoader levelManager;
+    private TutorialManager tutorialManager;
     // Start is called before the first frame update
-    void Start()
-    {
-
+    void Start() {
+        tutorialManager = new TutorialManager(gameObject.GetComponent<BeatmapHandler>());
+        tutorialManager.Execute();
     }
 
     // Update is called once per frame
