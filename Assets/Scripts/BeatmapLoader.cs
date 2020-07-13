@@ -111,7 +111,7 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_3_A1";
         beatmap.songName = "Tutorial_Level3";
         beatmap.start = 0f;
-        beatmap.duration = 39.1f;
+        beatmap.duration = 10f;
         beatmap.bpm = 120f;
         beatmap.cues = new Cue[] {
             new Cue(0f, CueType.StartPosition, 0f, -5f),
@@ -122,7 +122,7 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_3_B1";
         beatmap.songName = "Tutorial_Level3_failed";
         beatmap.start = 0f;
-        beatmap.duration = 39.1f;
+        beatmap.duration = 10f;
         beatmap.bpm = 120f;
         beatmap.cues = new Cue[] {
             new Cue(0f, CueType.StartPosition, 0f, -5f),
@@ -133,12 +133,12 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_4_A1";
         beatmap.songName = "Tutorial_Level4";
         beatmap.start = 0f;
-        beatmap.duration = 39.1f;
+        beatmap.duration = 16.3f;
         beatmap.bpm = 120f;
         beatmap.cues = new Cue[] {
             new Cue(0f, CueType.StartPosition, 0f, -5f)
         };
-        SaveData("tutorial3_fail", beatmap);
+        SaveData("tutorial4", beatmap);
     }
 
     public void LoadFolder() {
