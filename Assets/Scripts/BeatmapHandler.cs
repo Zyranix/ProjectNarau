@@ -40,7 +40,6 @@ public class BeatmapHandler : MonoBehaviour
     }
 
     public void Start() {
-        speaker = gameObject.AddComponent<AudioSource>();
         bell = Resources.Load<AudioClip>("Sounds/Bell");
     }
 
@@ -106,10 +105,12 @@ public class BeatmapHandler : MonoBehaviour
         proximityRatings = new List<float>();
 
         AudioClip clip = Resources.Load<AudioClip>(this.map.songLocation);
+        if (speaker == null) speaker = gameObject.AddComponent<AudioSource>();
         handledCue = false;
         playerRepeat = false;
         beatmapPlays = true;
         startTime = DateTime.Now;
+        Debug.Log(clip);
         speaker.PlayOneShot(clip);
     }
 
