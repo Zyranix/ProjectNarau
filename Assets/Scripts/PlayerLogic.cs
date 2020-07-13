@@ -9,14 +9,17 @@ public class PlayerLogic : MonoBehaviour
     // AudioSource audioSource;
     // Health health;
 
-    void Start()
+    async void Start()
     {
         upperHandle = GameObject.Find("Panto").GetComponent<UpperHandle>();
-        // health = GetComponent<Health>();
+        //await upperHandle.SwitchTo(gameObject, 0.5f); // seems like this is max movement speed
     }
-
-    void Update()
-    {
-        transform.position = upperHandle.HandlePosition(transform.position);
+    
+    public float XPosition() {
+        return (float)upperHandle.GetPosition().x;
+    }
+    
+    public float YPosition() {
+        return (float)upperHandle.GetPosition().z;        
     }
 }

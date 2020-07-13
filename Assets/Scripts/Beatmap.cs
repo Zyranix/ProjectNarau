@@ -9,5 +9,5 @@ public class Beatmap
     public float start; // might be not needed after all
     public float duration;
     //public Vector[] difficulties;
-    public Tuple<float, CpType, float, float>[] checkpoints; // timestamp, checkpoint-type, x-coord, y-coord
+    public Cue[] cues; // timestamp, checkpoint-type, x-coord, y-coord
 }

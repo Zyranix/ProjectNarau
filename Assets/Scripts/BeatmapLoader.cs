@@ -26,9 +26,12 @@ public class BeatmapLoader
         beatmaps[0].start = 0f;
         beatmaps[0].duration = 34.085f;
         beatmaps[0].bpm = 120f;
-        beatmaps[0].checkpoints = new Tuple<float, CpType, float, float>[] { 
-            Tuple.Create(0f, CpType.Position, 10f, 10f), 
-            Tuple.Create(1f, CpType.Position, 20f, 10f)
+        beatmaps[0].cues = new Cue[] {
+            new Cue(16.4f, CueType.StartPosition, 4f, -11f),
+            new Cue(16.53f, CueType.EndPosition, -1f, -6f),
+            new Cue(32.7f, CueType.PlayerRepeat)/*,
+            new Cue(16.9f, CueType.EndPosition, -1f, -6f),
+            new Cue(17.03f, CueType.EndPosition, -1f, -12f)*/
         };
         SaveData("tutorial1", beatmaps[0]);
 
@@ -38,14 +41,17 @@ public class BeatmapLoader
         beatmaps[0].start = 0f;
         beatmaps[0].duration = 32.54f;
         beatmaps[0].bpm = 120f;
-        beatmaps[0].checkpoints = new Tuple<float, CpType, float, float>[] { 
-            Tuple.Create(0f, CpType.Position, 10f, 10f), 
-            Tuple.Create(1f, CpType.Position, 20f, 10f)
+        beatmaps[0].cues = new Cue[] {
+            new Cue(14.7f, CueType.StartPosition, 4f, -11f),
+            new Cue(14.83f, CueType.EndPosition, -1f, -6f),
+            new Cue(31.1f, CueType.PlayerRepeat)/*,
+            new Cue(16.9f, CueType.EndPosition, -1f, -6f),
+            new Cue(17.03f, CueType.EndPosition, -1f, -12f)*/
         };
         SaveData("tutorial1_fail", beatmaps[0]);
         currentCopy = LoadData("tutorial1_fail");
-        for (int i = 0; i < currentCopy.checkpoints.Length; i++)
-            Debug.Log(currentCopy.checkpoints[i]);
+        for (int i = 0; i < currentCopy.cues.Length; i++)
+            Debug.Log(currentCopy.cues[i]);
     }
 
     public void LoadFolder() {
@@ -53,7 +59,7 @@ public class BeatmapLoader
         DirectoryInfo[] info = dir.GetDirectories("*.*");
         numOfLevels = info.Length;
         beatmaps = new Beatmap[numOfLevels];
-        for (int i = 0; i < numOfLevels; i++)
+        for (int i = 0; i < 2; i++)
         {
             beatmaps[i] = LoadData(info[i].Name);
             Debug.Log(info[i].Name);

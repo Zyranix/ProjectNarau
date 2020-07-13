@@ -46,11 +46,14 @@ public class TutorialManager {
 
     private async void RunTutorial() {
         while (currMapId < loader.numOfLevels) {
+            Debug.Log(currMapId);
             bool success = await handler.PlayBeatmap(loader.beatmaps[currMapId]);
             
             if (success) {
+                Debug.Log("success");
                 currMapId = mapping[currMapId].SuccessMapId;
             } else {
+                Debug.Log("fail");
                 currMapId = mapping[currMapId].FailureMapId;
             }
         }
