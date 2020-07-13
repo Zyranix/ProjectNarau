@@ -36,7 +36,7 @@ public class BeatmapHandler : MonoBehaviour
             Debug.Log(rating);
         }
         Debug.Log(FinalRating());
-        return FinalRating() > 0.5f;
+        return FinalRating() > 0.6f;
     }
 
     public void Start() {
@@ -48,7 +48,7 @@ public class BeatmapHandler : MonoBehaviour
         if (!beatmapPlays) return;
 
         if (NoFurtherCues()) {
-            if (BellCued() && (nextBellCueTime > ElapsedSeconds())) {
+            if (!playerRepeat && BellCued() && (nextBellCueTime > ElapsedSeconds())) {
                 RingBell();
             } else {
                 return;
@@ -61,7 +61,7 @@ public class BeatmapHandler : MonoBehaviour
             NextCue();
         }
 
-        if (BellCued() && (nextBellCueTime <= ElapsedSeconds())) {
+        if (!playerRepeat && BellCued() && (nextBellCueTime <= ElapsedSeconds())) {
             RingBell();
         }
 
@@ -94,11 +94,12 @@ public class BeatmapHandler : MonoBehaviour
     }
 
     private void InitializePlay() {
-        if (map.cues.Length == 0) return;
+        if (map.cues.Length < 2) return;
 
         currentCue = map.cues[0];
         nextCueId = 1;
         nextCue = map.cues[nextCueId];
+        nextBellCueTime = null;
 
         offset = 0f;
 
@@ -172,7 +173,8 @@ public class BeatmapHandler : MonoBehaviour
         float interpolatedY = currentCue.YPosition + CueProgress() * deltaY;
 
         if (playerRepeat) {
-            RateProximity(interpolatedX, interpolatedY);
+            if (CueType.StartPosition != currentCue.Type)
+                RateProximity(interpolatedX, interpolatedY);
         } else {
             shower.JumpTo(interpolatedX, interpolatedY);
         }
@@ -184,7 +186,7 @@ public class BeatmapHandler : MonoBehaviour
         float deltaX = targetX - currentX;
         float deltaY = targetY - currentY;
         float distance = (float)Math.Sqrt(deltaX*deltaX + deltaY*deltaY);
-        float rating = 1f - 1f*distance*0.14f;
+        float rating = 1f - 1f*distance*0.2f;
         if (rating < 0) rating = 0;
         proximityRatings.Add(rating);
     }
