@@ -14,12 +14,7 @@ public struct NextBeatmap
     public int FailureMapId;
 }
 
-<<<<<<< HEAD
 public class TutorialManager: BaseManager {
-=======
-public class TutorialManager
-{
->>>>>>> 0c502ad0996339630bf50fbdfa6458f898418328
     private BeatmapLoader loader;
     private BeatmapHandler handler;
     private int currMapId = 4;
