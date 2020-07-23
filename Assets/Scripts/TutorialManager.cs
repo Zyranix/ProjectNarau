@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public struct NextBeatmap {
     public NextBeatmap(int successMapId, int failureMapId) {
@@ -12,7 +12,7 @@ public struct NextBeatmap {
     public int FailureMapId;
 } 
 
-public class TutorialManager {
+public class TutorialManager: BaseManager {
     private BeatmapLoader loader;
     private BeatmapHandler handler;
     private int currMapId = 0;
@@ -29,7 +29,7 @@ public class TutorialManager {
         loader.LoadFolder(); //maybe have a look at resource loading
         
         mapping = new List<NextBeatmap>();
-        
+
         mapping.Add(new NextBeatmap(2, 1));  // first tutorial
         mapping.Add(new NextBeatmap(2, 1));  // failing first tutorial
         mapping.Add(new NextBeatmap(4, 3));  // second tutorial
@@ -39,9 +39,10 @@ public class TutorialManager {
         mapping.Add(new NextBeatmap(7, 7));  // outro
     }
 
-    public void Execute() {
+    public override async Task<bool> Execute() {
         Initialize();
         RunTutorial();
+        return true;
     }
 
     private async void RunTutorial() {
