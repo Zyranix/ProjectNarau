@@ -32,67 +32,85 @@ public class BeatmapHandler : MonoBehaviour
         InitializePlay();
         await Task.Delay((int)Math.Floor(this.map.duration * 1000));
         TerminatePlay();
-        foreach (float rating in proximityRatings) {
+        foreach (float rating in proximityRatings)
+        {
             Debug.Log(rating);
         }
         Debug.Log(FinalRating());
         return FinalRating() > 0.6f;
     }
 
-    public void Start() {
+    public void Start()
+    {
         bell = Resources.Load<AudioClip>("Sounds/Bell");
     }
 
-    public void Update() {
+    public void Update()
+    {
         if (!beatmapPlays) return;
 
-        if (NoFurtherCues()) {
-            if (!playerRepeat && BellCued() && (nextBellCueTime > ElapsedSeconds())) {
+        if (NoFurtherCues())
+        {
+            if (!playerRepeat && BellCued() && (nextBellCueTime > ElapsedSeconds()))
+            {
                 RingBell();
-            } else {
+            }
+            else
+            {
                 return;
             }
         }
 
-        if (!LastCue() && CueType.Bell == nextCue.Type) {
+        if (!playerRepeat && !LastCue() && CueType.Bell == nextCue.Type)
+        {
             if (BellCued()) return;
             nextBellCueTime = nextCue.Time;
             NextCue();
         }
 
-        if (!playerRepeat && BellCued() && (nextBellCueTime <= ElapsedSeconds())) {
+        if (!playerRepeat && BellCued() && (nextBellCueTime <= ElapsedSeconds()))
+        {
             RingBell();
         }
 
-        if (!handledCue && CueType.StartPosition == currentCue.Type) {
+        if (!handledCue && CueType.StartPosition == currentCue.Type)
+        {
             shower.JumpTo(currentCue.XPosition, currentCue.YPosition);
             handledCue = true;
         }
 
-        if (!LastCue() && nextCue.Time <= ElapsedSeconds()) {
+        if (!LastCue() && nextCue.Time <= ElapsedSeconds())
+        {
             GoToNextCue();
             NextCue();
             handledCue = false;
         }
 
-        if (!LastCue() && CueType.EndPosition == nextCue.Type) {
+        if (!LastCue() && CueType.EndPosition == nextCue.Type)
+        {
             if (CueType.StartPosition == currentCue.Type && currentCue.Time > ElapsedSeconds()) return;
             handleMovement();
         }
 
-        if (CueType.PlayerRepeat == currentCue.Type) {
-            if (playerRepeat) {
+        if (CueType.PlayerRepeat == currentCue.Type)
+        {
+            if (playerRepeat)
+            {
                 playerRepeat = false;
+                offset = 0f;
                 GoToNextCue();
                 NextCue();
-            } else {
+            }
+            else
+            {
                 playerRepeat = true;
                 GoBackToSequenceStart();
             }
         }
     }
 
-    private void InitializePlay() {
+    private void InitializePlay()
+    {
         if (map.cues.Length < 2) return;
 
         currentCue = map.cues[0];
@@ -114,88 +132,109 @@ public class BeatmapHandler : MonoBehaviour
         speaker.PlayOneShot(clip);
     }
 
-    private void TerminatePlay() {
+    private void TerminatePlay()
+    {
         beatmapPlays = false;
     }
 
-    private void RingBell() {
+    private void RingBell()
+    {
         speaker.PlayOneShot(bell);
         nextBellCueTime = null;
     }
 
-    private void NextCue() {
-        if (map.cues.Length-1 <= nextCueId) {
+    private void NextCue()
+    {
+        if (map.cues.Length - 1 <= nextCueId)
+        {
             nextCue = null;
-        } else {
+        }
+        else
+        {
             nextCue = map.cues[++nextCueId];
         }
     }
 
-    private void GoToNextCue() {
+    private void GoToNextCue()
+    {
         currentCue = nextCue;
     }
 
-    private void GoBackToSequenceStart() {
+    private void GoBackToSequenceStart()
+    {
         Cue playerRepeat = currentCue;
-        while (nextCueId > 0 && (CueType.StartPosition != currentCue.Type)) {
+        while (nextCueId > 0 && (CueType.StartPosition != currentCue.Type))
+        {
             currentCue = map.cues[--nextCueId];
         }
         nextCue = map.cues[++nextCueId];
-        offset += playerRepeat.Time - currentCue.Time;
+        offset = playerRepeat.Time - currentCue.Time;
     }
 
-    private bool NoFurtherCues() {
+    private bool NoFurtherCues()
+    {
         return currentCue == null && nextCue == null;
     }
 
-    private bool LastCue() {
+    private bool LastCue()
+    {
         return nextCue == null;
     }
 
-    private bool BellCued() {
+    private bool BellCued()
+    {
         return nextBellCueTime != null;
     }
 
-    private float ElapsedSeconds() {
+    private float ElapsedSeconds()
+    {
         return (float)(DateTime.Now - startTime).TotalSeconds - offset;
     }
 
-    private float CueProgress() {
+    private float CueProgress()
+    {
         float cueTimeDelta = nextCue.Time - currentCue.Time;
         float runTimeDelta = ElapsedSeconds() - currentCue.Time;
         return runTimeDelta / cueTimeDelta;
     }
 
-    private void handleMovement() {
+    private void handleMovement()
+    {
         if (LastCue()) return;
         float deltaX = nextCue.XPosition - currentCue.XPosition;
         float deltaY = nextCue.YPosition - currentCue.YPosition;
         float interpolatedX = currentCue.XPosition + CueProgress() * deltaX;
         float interpolatedY = currentCue.YPosition + CueProgress() * deltaY;
 
-        if (playerRepeat) {
+        if (playerRepeat)
+        {
             if (CueType.StartPosition != currentCue.Type)
                 RateProximity(interpolatedX, interpolatedY);
-        } else {
+        }
+        else
+        {
             shower.JumpTo(interpolatedX, interpolatedY);
         }
     }
 
-    private void RateProximity(float targetX, float targetY) {
+    private void RateProximity(float targetX, float targetY)
+    {
         float currentX = player.XPosition();
         float currentY = player.YPosition();
         float deltaX = targetX - currentX;
         float deltaY = targetY - currentY;
-        float distance = (float)Math.Sqrt(deltaX*deltaX + deltaY*deltaY);
-        float rating = 1f - 1f*distance*0.2f;
+        float distance = (float)Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+        float rating = 1f - 1f * distance * 0.2f;
         if (rating < 0) rating = 0;
         proximityRatings.Add(rating);
     }
 
-    private float FinalRating() {
+    private float FinalRating()
+    {
         if (proximityRatings.Count == 0) return 1;
         float sum = 0;
-        foreach (float rating in proximityRatings) {
+        foreach (float rating in proximityRatings)
+        {
             sum += rating;
         }
         return sum / proximityRatings.Count;

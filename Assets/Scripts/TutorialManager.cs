@@ -2,34 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct NextBeatmap {
-    public NextBeatmap(int successMapId, int failureMapId) {
+public struct NextBeatmap
+{
+    public NextBeatmap(int successMapId, int failureMapId)
+    {
         SuccessMapId = successMapId;
         FailureMapId = failureMapId;
     }
 
     public int SuccessMapId;
     public int FailureMapId;
-} 
+}
 
-public class TutorialManager {
+public class TutorialManager
+{
     private BeatmapLoader loader;
     private BeatmapHandler handler;
-    private int currMapId = 0;
+    private int currMapId = 4;
     private List<NextBeatmap> mapping;
 
-    public TutorialManager(BeatmapHandler externalHandler) {
+    public TutorialManager(BeatmapHandler externalHandler)
+    {
         handler = externalHandler;
     }
 
-    private void Initialize() {
+    private void Initialize()
+    {
         loader = new BeatmapLoader("Assets/Resources/Tutorials/");
 
         loader.DebugExample();
         loader.LoadFolder(); //maybe have a look at resource loading
-        
+
         mapping = new List<NextBeatmap>();
-        
+
         mapping.Add(new NextBeatmap(2, 1));  // first tutorial
         mapping.Add(new NextBeatmap(2, 1));  // failing first tutorial
         mapping.Add(new NextBeatmap(4, 3));  // second tutorial
@@ -39,20 +44,26 @@ public class TutorialManager {
         mapping.Add(new NextBeatmap(7, 7));  // outro
     }
 
-    public void Execute() {
+    public void Execute()
+    {
         Initialize();
         RunTutorial();
     }
 
-    private async void RunTutorial() {
-        while (currMapId < loader.numOfLevels) {
+    private async void RunTutorial()
+    {
+        while (currMapId < loader.numOfLevels)
+        {
             Debug.Log(currMapId);
             bool success = await handler.PlayBeatmap(loader.beatmaps[currMapId]);
-            
-            if (success) {
+
+            if (success)
+            {
                 Debug.Log("success");
                 currMapId = mapping[currMapId].SuccessMapId;
-            } else {
+            }
+            else
+            {
                 Debug.Log("fail");
                 currMapId = mapping[currMapId].FailureMapId;
             }
