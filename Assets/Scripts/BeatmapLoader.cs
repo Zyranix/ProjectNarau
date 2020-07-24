@@ -42,7 +42,7 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_1_B1";
         beatmap.songName = "Tutorial_Level1_failed";
         beatmap.start = 0f;
-        beatmap.duration = 24.420f;
+        beatmap.duration = 24.420f;S
         beatmap.bpm = 117.5f;
         beat = 60f / beatmap.bpm;
         start = 14.4f;
@@ -118,7 +118,7 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_3_A1";
         beatmap.songName = "Tutorial_Level3";
         beatmap.start = 0f;
-        beatmap.duration = 49.293f;
+        beatmap.duration = 49.05f;
         beatmap.bpm = 117.5f;
         beat = 60f / beatmap.bpm;
         start = 16.35f; //beat 0 | 16.35 beat 1
@@ -530,7 +530,7 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_3_B1";
         beatmap.songName = "Tutorial_Level3_failed";
         beatmap.start = 0f;
-        beatmap.duration = 48.825f;
+        beatmap.duration = 48.73f;
         beatmap.bpm = 117.5f;
         beat = 60f / beatmap.bpm;
         start = 16.00f; //beat 0 | 16.35 beat 1
@@ -942,7 +942,7 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_4_A1";
         beatmap.songName = "Tutorial_Level4";
         beatmap.start = 0f;
-        beatmap.duration = 16.3f;
+        beatmap.duration = 16.25f;
         beatmap.bpm = 117.5f;
         beatmap.cues = new Cue[] {
             new Cue(0f, CueType.StartPosition, 0f, -5f),

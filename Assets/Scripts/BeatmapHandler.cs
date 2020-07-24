@@ -128,7 +128,6 @@ public class BeatmapHandler : MonoBehaviour
         playerRepeat = false;
         beatmapPlays = true;
         startTime = DateTime.Now;
-        Debug.Log(clip);
         speaker.PlayOneShot(clip);
     }
 
