@@ -42,7 +42,7 @@ public class BeatmapLoader
         beatmap.songLocation = "Intro_1_B1";
         beatmap.songName = "Tutorial_Level1_failed";
         beatmap.start = 0f;
-        beatmap.duration = 24.420f;S
+        beatmap.duration = 24.420f;
         beatmap.bpm = 117.5f;
         beat = 60f / beatmap.bpm;
         start = 14.4f;
@@ -131,13 +131,11 @@ public class BeatmapLoader
             new Cue(start + dbar * 0 + beat * 3.6f, CueType.EndPosition, -3f, -10f),
             new Cue(start + dbar * 0 + beat * 4.0f, CueType.EndPosition, -3f, -10f),
             new Cue(start + dbar * 0 + beat * 5.6f, CueType.EndPosition, 3f, -10f),
+            new Cue(start + dbar * 0 + beat * 5.8f, CueType.Bell),
             new Cue(start + dbar * 0 + beat * 6.0f, CueType.EndPosition, 3f, -10f),
-            new Cue(start + dbar * 0 + beat * 6.4f, CueType.Bell),
-            new Cue(start + dbar * 0 + beat * 7.0f, CueType.EndPosition, 0f, -10f),
-            new Cue(start + dbar * 0 + beat * 7.6f, CueType.EndPosition, 0f, -12f),
-            new Cue(start + dbar * 0 + beat * 7.9f, CueType.EndPosition, 0f, -12f),
             new Cue(start + dbar * 0 + dbar, CueType.PlayerRepeat),
-            new Cue(start + dbar * 2 + beat * 0.0f, CueType.StartPosition, 0f, -12f),
+
+            new Cue(start + dbar * 2 + beat * 0.0f, CueType.StartPosition, 3f, -10f),
 
             new Cue(start + dbar * 2 + beat * 0.000f, CueType.EndPosition, -0.000f, -12.000f),
             new Cue(start + dbar * 2 + beat * 0.033f, CueType.EndPosition, -0.070f, -11.999f),
