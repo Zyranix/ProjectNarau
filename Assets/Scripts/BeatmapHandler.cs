@@ -73,7 +73,7 @@ public class BeatmapHandler : MonoBehaviour
             RingBell();
         }
 
-        if (!handledCue && CueType.StartPosition == currentCue.Type)
+        if (!handledCue && !playerRepeat && CueType.StartPosition == currentCue.Type)
         {
             shower.JumpTo(currentCue.XPosition, currentCue.YPosition);
             handledCue = true;

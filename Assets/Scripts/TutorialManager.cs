@@ -17,7 +17,7 @@ public struct NextBeatmap
 public class TutorialManager: BaseManager {
     private BeatmapLoader loader;
     private BeatmapHandler handler;
-    private int currMapId = 4;
+    private int currMapId = 2;
     private List<NextBeatmap> mapping;
 
     public TutorialManager(BeatmapHandler externalHandler)

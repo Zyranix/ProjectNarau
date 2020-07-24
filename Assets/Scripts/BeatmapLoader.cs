@@ -32,9 +32,9 @@ public class BeatmapLoader
         beatmap.duration = 34.085f;
         beatmap.bpm = 117.5f;
         beatmap.cues = new Cue[] {
-            new Cue(16.4f, CueType.StartPosition, 4f, -11f),
-            new Cue(16.53f, CueType.EndPosition, -1f, -6f),
-            new Cue(16.60f, CueType.EndPosition, -1f, -6f),
+            new Cue(16.4f, CueType.StartPosition, 3f, -10f),
+            new Cue(16.53f, CueType.EndPosition, -1f, -8f),
+            new Cue(16.60f, CueType.EndPosition, -1f, -8f),
             new Cue(32.7f, CueType.PlayerRepeat)
         };
         SaveData("tutorial1", beatmap);
@@ -48,9 +48,9 @@ public class BeatmapLoader
         start = 14.4f;
         repeat = start + beat * 16.9f;
         beatmap.cues = new Cue[] {
-            new Cue(start + beat * 0.6f, CueType.StartPosition, 4f, -11f),
-            new Cue(start + beat * 0.9f, CueType.EndPosition, -1f, -6f),
-            new Cue(start + beat * 1.0f, CueType.EndPosition, -1f, -6f),
+            new Cue(start + beat * 0.6f, CueType.StartPosition, 3f, -10f),
+            new Cue(start + beat * 0.9f, CueType.EndPosition, -1f, -8f),
+            new Cue(start + beat * 1.0f, CueType.EndPosition, -1f, -8f),
             new Cue(repeat, CueType.PlayerRepeat)
         };
         SaveData("tutorial1_fail", beatmap);
@@ -64,25 +64,23 @@ public class BeatmapLoader
         start = 22.80f; //beat 0 
         repeat = start + beat * 16f;
         beatmap.cues = new Cue[] {
-            new Cue(start, CueType.StartPosition, -3f, -8f),
-            new Cue(start + beat * 13.5f, CueType.Bell),
-            new Cue(start + beat * 1.5f, CueType.EndPosition, 3f, -8f),
-            new Cue(start + beat * 2.0f, CueType.EndPosition, 3f, -8f),
-            new Cue(start + beat * 3.5f, CueType.EndPosition, 3f, -12f),
-            new Cue(start + beat * 3.8f, CueType.EndPosition, 3f, -12f),
-            new Cue(start + beat * 7.0f, CueType.EndPosition, -3f, -8f),
-            new Cue(start + beat * 8.0f, CueType.EndPosition, -3f, -8f),
+            new Cue(start, CueType.StartPosition, -3f, -10f),
+            new Cue(start + beat * 3.5f, CueType.EndPosition, 3f, -10f),
+            new Cue(start + beat * 4f, CueType.EndPosition, 3f, -10f),
+            new Cue(start + beat * 4.5f, CueType.EndPosition, 0f, -13f),
+            new Cue(start + beat * 6.0f, CueType.EndPosition, 0f, -13f),
+            new Cue(start + beat * 6.5f, CueType.EndPosition, -3f, -10f),
+            new Cue(start + beat * 8.0f, CueType.EndPosition, -3f, -10f),
 
-            new Cue(start + beat * 8.65f, CueType.EndPosition, -3f, -10f),
-            new Cue(start + beat * 9.0f, CueType.EndPosition, -3f, -10f),
-            new Cue(start + beat * 9.65f, CueType.EndPosition, -1f, -10f),
-            new Cue(start + beat * 10.0f, CueType.EndPosition, -1f, -10f),
-            new Cue(start + beat * 10.65f, CueType.EndPosition, -1f, -8f),
-            new Cue(start + beat * 11.0f, CueType.EndPosition, -1f, -8f),
-            new Cue(start + beat * 11.65f, CueType.EndPosition, -3f, -8f),
-            new Cue(start + beat * 11.8f, CueType.EndPosition, -3f, -8f),
-            new Cue(start + beat * 15.0f, CueType.EndPosition, 2f, -14f),
-            new Cue(start + beat * 15.9f, CueType.EndPosition, 2f, -14f),
+            new Cue(start + beat * 8.65f, CueType.EndPosition, 0f, -10f),
+            new Cue(start + beat * 10f, CueType.EndPosition, 0f, -10f),
+            new Cue(start + beat * 10.65f, CueType.EndPosition, 0f, -13f),
+            new Cue(start + beat * 12f, CueType.EndPosition, 0f, -13f),
+            new Cue(start + beat * 12.65f, CueType.EndPosition, 0f, -6f),
+            new Cue(start + beat * 14f, CueType.EndPosition, 0f, -6f),
+            new Cue(start + beat * 14.65f, CueType.EndPosition, 0f, -10f),
+            new Cue(start + beat * 15f, CueType.Bell),
+            new Cue(start + beat * 16f, CueType.EndPosition, 0f, -10f),
             new Cue(repeat, CueType.PlayerRepeat)
         };
         SaveData("tutorial2", beatmap);
@@ -96,25 +94,23 @@ public class BeatmapLoader
         start = 16.30f; //beat 0
         repeat = start + beat * 16f;
         beatmap.cues = new Cue[] {
-            new Cue(start, CueType.StartPosition, -3f, -8f),
-            new Cue(start + beat * 13.5f, CueType.Bell),
-            new Cue(start + beat * 1.5f, CueType.EndPosition, 3f, -8f),
-            new Cue(start + beat * 2.0f, CueType.EndPosition, 3f, -8f),
-            new Cue(start + beat * 3.5f, CueType.EndPosition, 3f, -12f),
-            new Cue(start + beat * 3.8f, CueType.EndPosition, 3f, -12f),
-            new Cue(start + beat * 7.0f, CueType.EndPosition, -3f, -8f),
-            new Cue(start + beat * 8.0f, CueType.EndPosition, -3f, -8f),
+            new Cue(start, CueType.StartPosition, -4f, -10f),
+            new Cue(start + beat * 3.5f, CueType.EndPosition, 8f, -10f),
+            new Cue(start + beat * 4f, CueType.EndPosition, 8f, -10f),
+            new Cue(start + beat * 5.5f, CueType.EndPosition, 2f, -15f),
+            new Cue(start + beat * 6.0f, CueType.EndPosition, 2f, -15f),
+            new Cue(start + beat * 7.5f, CueType.EndPosition, -4f, -8f),
+            new Cue(start + beat * 8.0f, CueType.EndPosition, -4f, -8f),
 
-            new Cue(start + beat * 8.65f, CueType.EndPosition, -3f, -10f),
-            new Cue(start + beat * 9.0f, CueType.EndPosition, -3f, -10f),
-            new Cue(start + beat * 9.65f, CueType.EndPosition, -1f, -10f),
-            new Cue(start + beat * 10.0f, CueType.EndPosition, -1f, -10f),
-            new Cue(start + beat * 10.65f, CueType.EndPosition, -1f, -8f),
-            new Cue(start + beat * 11.0f, CueType.EndPosition, -1f, -8f),
-            new Cue(start + beat * 11.65f, CueType.EndPosition, -3f, -8f),
-            new Cue(start + beat * 11.8f, CueType.EndPosition, -3f, -8f),
-            new Cue(start + beat * 15.0f, CueType.EndPosition, 2f, -14f),
-            new Cue(start + beat * 15.9f, CueType.EndPosition, 2f, -14f),
+            new Cue(start + beat * 8.65f, CueType.EndPosition, 0f, -8f),
+            new Cue(start + beat * 10f, CueType.EndPosition, 0f, -8f),
+            new Cue(start + beat * 10.65f, CueType.EndPosition, 0f, -16f),
+            new Cue(start + beat * 12f, CueType.EndPosition, -0f, -16f),
+            new Cue(start + beat * 12.65f, CueType.EndPosition, 0f, -4f),
+            new Cue(start + beat * 14f, CueType.EndPosition, 0f, -4f),
+            new Cue(start + beat * 14.65f, CueType.EndPosition, 0f, -10f),
+            new Cue(start + beat * 15.0f, CueType.Bell),
+            new Cue(start + beat * 16f, CueType.EndPosition, 0f, -10f),
             new Cue(repeat, CueType.PlayerRepeat)
         };
         SaveData("tutorial2_fail", beatmap);
