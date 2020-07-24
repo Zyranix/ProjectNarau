@@ -15,7 +15,7 @@ public class GameManagerLogic : MonoBehaviour
         calibrationManager = new CalibrationManager(gameObject.GetComponent<BeatmapHandler>().player,
             GameObject.Find("Panto").GetComponent<LowerHandle>());
         tutorialManager = new TutorialManager(gameObject.GetComponent<BeatmapHandler>());
-        //await calibrationManager.Execute();
+        await calibrationManager.Execute();
         await tutorialManager.Execute();
     }
 
