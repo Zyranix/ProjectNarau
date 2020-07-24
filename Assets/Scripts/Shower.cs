@@ -10,7 +10,7 @@ public class Shower : MonoBehaviour
     async void Start()
     {
         lowerHandle = GameObject.Find("Panto").GetComponent<LowerHandle>();
-        await lowerHandle.SwitchTo(gameObject, 0.5f); // seems like this is max movement speed
+        await lowerHandle.SwitchTo(gameObject, 0.2f); // seems like this is max movement speed
     }
     
     void Update()
@@ -21,8 +21,5 @@ public class Shower : MonoBehaviour
     public void JumpTo(float xPosition, float yPosition) {
         transform.position = new Vector3(xPosition, 0f, yPosition);
     }
-
-
-
 
 }
