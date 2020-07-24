@@ -18,7 +18,7 @@ public class TutorialManager
 {
     private BeatmapLoader loader;
     private BeatmapHandler handler;
-    private int currMapId = 4;
+    private int currMapId = 0; //change only for debug purposes!!
     private List<NextBeatmap> mapping;
 
     public TutorialManager(BeatmapHandler externalHandler)
